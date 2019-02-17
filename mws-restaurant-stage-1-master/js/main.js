@@ -4,6 +4,19 @@ let restaurants,
 var newMap
 var markers = []
 
+
+
+/**Service worker registration */
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then(function (registration) {
+      console.log("SW registered", registration);
+    })
+    .catch(function (err) {
+      console.log("SW not registered", err);
+    });
+}
+
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
@@ -78,7 +91,7 @@ initMap = () => {
         scrollWheelZoom: false
       });
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
-    mapboxToken: '<your MAPBOX API KEY HERE>',
+    mapboxToken: 'pk.eyJ1IjoiZmFoZWRhbGhhbXdpIiwiYSI6ImNqczRuYTdsczA2czA0OW83N2w4aWxtOWwifQ.t4SxDXumSbagSsm77t_yhQ',
     maxZoom: 18,
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
       '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
