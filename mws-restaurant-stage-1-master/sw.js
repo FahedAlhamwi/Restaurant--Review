@@ -1,4 +1,4 @@
-let cacheUrl = [
+var cacheUrl = [
     '/',
     '/index.html',
     '/restaurant.html',
